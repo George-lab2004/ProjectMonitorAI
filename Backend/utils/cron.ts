@@ -33,8 +33,8 @@ export const runCronAudit = async (): Promise<void> => {
     }
 };
 
-// Run locally every 8 hours: 00:00, 08:00, and 16:00
-cron.schedule("0 */8 * * *", async () => {
+// Run locally every 24 hours at midnight
+cron.schedule("0 0 * * *", async () => {
     console.log("[Cron Job] Running local scheduled task...");
     await runCronAudit().catch((err) => {
         console.error("[Cron Job] Scheduled task execution failed:", err);

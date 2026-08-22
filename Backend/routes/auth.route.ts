@@ -12,6 +12,7 @@ import {
 } from "../controllers/auth.controller.js";
 import { protect, manager } from "../middlewares/auth.middleware.js";
 import { validate } from "../middlewares/validation.middleware.js";
+import { authLimiter } from "../middlewares/limiter.middleware.js";
 import { 
     signUpValidator, 
     signInValidator, 
@@ -21,10 +22,10 @@ import {
 
 const router = express.Router();
 
-router.post("/signup", validate(signUpValidator), signUp);
-router.post("/signin", validate(signInValidator), signIn);
+router.post("/signup", authLimiter, validate(signUpValidator), signUp);
+router.post("/signin", authLimiter, validate(signInValidator), signIn);
 router.post("/logout", logOut);
-router.post("/forgot-password", validate(forgotPasswordValidator), forgotPassword);
+router.post("/forgot-password", authLimiter, validate(forgotPasswordValidator), forgotPassword);
 router.post("/reset-password", validate(resetPasswordValidator), resetPassword);
 router.post("/verify-email", verifyEmail);
 

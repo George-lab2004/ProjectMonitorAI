@@ -9,6 +9,7 @@ import {
 } from "../controllers/project.controller.js";
 import { protect, manager } from "../middlewares/auth.middleware.js";
 import { validate } from "../middlewares/validation.middleware.js";
+import { aiLimiter } from "../middlewares/limiter.middleware.js";
 import { createProjectValidator, updateProjectValidator } from "../validators/project.validator.js";
 
 const router = express.Router();
@@ -22,6 +23,6 @@ router.route("/:id")
     .delete(protect, manager, deleteProject)
     .put(protect, manager, validate(updateProjectValidator), updateProject);
 
-router.post("/:id/audit", protect, triggerManualProjectAudit);
+router.post("/:id/audit", protect, aiLimiter, triggerManualProjectAudit);
 
 export default router;

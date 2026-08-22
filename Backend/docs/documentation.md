@@ -96,6 +96,11 @@ To prevent invalid database writes or missing keys, every critical write endpoin
 *   Runs `schema.validate(req.body, { abortEarly: false })`.
 *   If validation fails, it aggregates every validation error (e.g. *“Email is required, Password must be at least 6 characters”*) and throws a `400 Bad Request` before the controller can run, protecting our database from corrupt data.
 
+### 2.5 API Rate Limiting (`limiter.middleware.ts`)
+To protect backend resources against denial of service (DoS), wallet exhaustion, and brute-force credential stuffing, rate-limiting is enforced on sensitive endpoints:
+*   **Authentication Limiter (`authLimiter`)**: Applied to `/api/auth/signup`, `/api/auth/signin`, and `/api/auth/forgot-password`. Limits an IP address to **10 requests per 15 minutes**.
+*   **AI Auditor Limiter (`aiLimiter`)**: Applied to `POST /api/projects/:id/audit`. Limits an IP address to **20 requests per hour** to prevent financial/quota abuse of the Gemini API.
+
 ---
 
 ## ⚡ 3. Sockets & Real-Time Notifications Flow

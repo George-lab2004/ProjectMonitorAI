@@ -1,0 +1,33 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+theme inline {
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --color-cyan: #00D4FF;
+  --color-teal: #0D9488;
+  --color-violet: #8B5CF6;
+  --color-emerald: #10B981;
+  --color-amber: #F59E0B;
+  --color-rose: #F43F5E;
+  --color-indigo: #6366F1;
+  --color-bg-base: #080C14;
+  --color-bg-surface: #0D1521;
+  --color-bg-card: #0F1B2D;
+  --color-text-primary: #E8F0FF;
+  --color-text-secondary: #7A8BA8;
+  --color-text-muted: #3D5070;
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-md: rgba(255, 255, 255, 0.10);
+}
+
+[data-theme="light"] {
+  --color-bg-base: #F7F5F2;
+  --color-bg-surface: #FFFFFF;
+  --color-bg-card: #FFFFFF;
+  --color-text-primary: #1A2035;
+  --color-text-secondary: #5A6780;
+  --color-border: rgba(0, 0, 0, 0.07);
+}
