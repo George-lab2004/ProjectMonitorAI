@@ -2,7 +2,7 @@
 @plugin "daisyui";
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
 
-theme inline {
+@theme {
   --font-display: 'Syne', sans-serif;
   --font-body: 'DM Sans', sans-serif;
   --font-mono: 'DM Mono', monospace;
@@ -21,6 +21,7 @@ theme inline {
   --color-text-muted: #3D5070;
   --color-border: rgba(255, 255, 255, 0.06);
   --color-border-md: rgba(255, 255, 255, 0.10);
+  --color-bg-letter: #1e293b;
 }
 
 [data-theme="light"] {
@@ -30,4 +31,6 @@ theme inline {
   --color-text-primary: #1A2035;
   --color-text-secondary: #5A6780;
   --color-border: rgba(0, 0, 0, 0.07);
+  --color-bg-letter: #9099a4;
+
 }
